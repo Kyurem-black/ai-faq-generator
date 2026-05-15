@@ -1,0 +1,16 @@
+:root{--bg:#f7fafc;--card:#ffffff;--muted:#6b7280;--accent:#2563eb}
+*{box-sizing:border-box;font-family:Segoe UI,Roboto,Arial,sans-serif}
+body{margin:0;background:var(--bg);color:#111}
+.container{max-width:900px;margin:40px auto;padding:24px}
+h1{margin:0 0 16px}
+.input-area,.output-area{background:var(--card);padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:16px}
+label{display:block;font-weight:600;margin:8px 0}
+input,textarea{width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:6px}
+.controls{margin-top:12px}
+button{background:var(--accent);color:#fff;padding:10px 14px;border:0;border-radius:6px;cursor:pointer}
+#output{min-height:120px}
+.faq{border-bottom:1px solid #eef2f7;padding:10px 0}
+.question{font-weight:700}
+.answer{color:var(--muted);margin-top:6px}
+.actions{margin-top:8px}
+.copy-btn{background:#eef2ff;border:1px solid #dbeafe;padding:6px 8px;border-radius:6px;color:#0369a1;cursor:pointer}

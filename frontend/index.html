@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>AI FAQ Generator - Week 1</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<main class="container">
+			<h1>AI FAQ Generator</h1>
+
+			<section class="input-area">
+				<label for="topic">Topic / Title</label>
+				<input id="topic" placeholder="e.g., Product X, Billing, Returns" />
+
+				<label for="content">Content / Description</label>
+				<textarea id="content" rows="8" placeholder="Paste article, product description, or enter details here..."></textarea>
+
+				<div class="controls">
+					<button id="generateBtn">Generate FAQs</button>
+				</div>
+			</section>
+
+			<section class="output-area">
+				<h2>Generated FAQs</h2>
+				<div id="output">No output yet.</div>
+			</section>
+		</main>
+
+		<script src="js/script.js"></script>
+	</body>
+</html>
