@@ -1,4 +1,4 @@
-# AI FAQ Generator (Week 1 scaffold)
+# AI FAQ Generator 
 
 This repo contains a lightweight scaffold for the "AI FAQ Generator" project. Week 1 focuses on learning and setting up the project environment.
 
