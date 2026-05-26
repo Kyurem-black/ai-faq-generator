@@ -1,6 +1,6 @@
 # AI FAQ Generator 
 
-This repo contains a lightweight scaffold for the "AI FAQ Generator" project. Upto week 3Week 3 focuses on learning and setting up the project environment.
+This repo contains a lightweight scaffold for the "AI FAQ Generator" project. Upto Week 3 focuses on learning, setting up the project environment, Building Frontend, Setting up the backend, Integrating AI API and Implementing FAQ Generation Prompts
 
 Run locally (Python + Flask):
 
