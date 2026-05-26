@@ -17,8 +17,12 @@
 				<label for="content">Content / Description</label>
 				<textarea id="content" rows="8" placeholder="Paste article, product description, or enter details here..."></textarea>
 
-				<div class="controls">
+				<div style="display:flex;gap:8px;align-items:center;margin-top:8px">
+					<label for="num">Number of FAQs</label>
+					<input id="num" type="number" min="1" max="20" value="5" style="width:80px" />
 					<button id="generateBtn">Generate FAQs</button>
+					<button id="copyAllBtn" class="copy-btn" style="background:#f3f4f6;color:#111">Copy All</button>
+					<button id="exportJsonBtn" class="copy-btn" style="background:#f3f4f6;color:#111">Export JSON</button>
 				</div>
 			</section>
 
