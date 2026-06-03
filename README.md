@@ -1,44 +1,86 @@
-# AI FAQ Generator (Week 1 scaffold)
+# AI FAQ Generator
 
-This repo contains a lightweight scaffold for the "AI FAQ Generator" project. Week 1 focuses on learning and setting up the project environment.
+A production-quality web application that accepts any text content (topic, article, product description, etc.) and automatically generates high-quality Frequently Asked Questions (FAQs) using Google's Gemini API.
 
-Run locally (Python + Flask):
+## Features
 
-1. Create and activate a virtual environment (recommended)
+- **Advanced AI Generation**: Utilizes Google's `gemini-2.5-flash` model to extract and generate 10-15 relevant, non-duplicate FAQs.
+- **Context Categories**: Generate FAQs tailored to Educational, Product, Service, or Technical content.
+- **Modern UI**: Premium design with glassmorphism, responsive layout, and vibrant styling.
+- **Dark Mode**: Built-in toggle for light and dark themes.
+- **Export to PDF**: Easily export generated FAQs as a clean PDF document.
+- **Copy QA**: One-click copy functionality to easily share or paste generated questions and answers.
 
-```bash
-python -m venv .venv
-.venv\Scripts\activate    # Windows
+## Tech Stack
+
+- **Frontend**: HTML5, CSS3 (Custom Properties, Glassmorphism), Vanilla JavaScript, `html2pdf.js`
+- **Backend**: Python, Flask, Flask-CORS
+- **AI**: Google Gemini API
+
+## Project Structure
+
+```text
+project/
+├── frontend/
+│   ├── index.html     # Main UI
+│   ├── style.css      # Styling & Themes
+│   └── script.js      # Logic, API Calls, PDF Export
+├── backend/
+│   ├── app.py         # Flask App & Endpoints
+│   ├── faq_generator.py # Gemini API Integration
+│   └── requirements.txt # Python dependencies
+├── .env               # Environment Variables (ignored in git)
+├── .gitignore         # Git ignore file
+└── README.md          # Documentation
 ```
 
-2. Install dependencies
+## Setup & Installation
 
-```bash
-pip install -r requirements.txt
-```
+1. **Clone the repository** (if applicable) or navigate to the project directory:
+   ```bash
+   cd project
+   ```
 
-3. Copy `.env.example` to `.env` and set any keys
+2. **Create a virtual environment** (recommended):
+   ```bash
+   python -m venv venv
+   # On Windows:
+   venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
+   ```
 
-4. Run backend
+3. **Install Dependencies**:
+   ```bash
+   pip install -r backend/requirements.txt
+   ```
 
-```bash
-python backend/app.py
-```
+4. **Configure Environment Variables**:
+   Open `.env` (or create one based on the template) and add your Google Gemini API Key:
+   ```env
+   GEMINI_API_KEY=your_actual_api_key_here
+   FLASK_APP=backend/app.py
+   PORT=5000
+   ```
 
-5. Open the frontend at `frontend/index.html` in your browser or navigate to `http://localhost:5000/` if serving static files from Flask.
+5. **Run the Application**:
+   Start the Flask server from the `project` root directory:
+   ```bash
+   python backend/app.py
+   ```
 
-Notes:
-- This scaffold provides a simple heuristic FAQ generator in `backend/utils.py`. In Week 3 we integrated an LLM API (OpenAI) and implemented prompt-based generation with a JSON output expectation. The backend will call OpenAI when `OPENAI_API_KEY` is set; otherwise it falls back to the local heuristic.
-- The frontend is static and sends requests to `POST /api/generate`.
+6. **Access the App**:
+   Open your browser and navigate to: [http://localhost:5000](http://localhost:5000)
 
-Environment example (`.env`):
+## Example Screenshots
 
-```
-PORT=5000
-OPENAI_API_KEY= our_openai_api_key_here
-```
+*(Include your screenshots here)*
+- **Light Mode UI**
+- **Dark Mode UI**
+- **Generated FAQs View**
+- **PDF Export Result**
 
-Frontend controls:
-- `Number of FAQs` — choose how many Q&A pairs to generate (1-20).
-- `Copy All` — copy generated Q&A pairs to clipboard.
-- `Export JSON` — download the generated FAQs as a JSON file.
+## Evaluation Notes
+- Includes advanced error handling.
+- JSON-based structured output explicitly requested from Gemini for guaranteed formatting.
+- Smooth animations, toasts, and loading states for premium user experience.

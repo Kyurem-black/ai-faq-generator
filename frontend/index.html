@@ -1,37 +1,107 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<title>AI FAQ Generator - Week 1</title>
-		<link rel="stylesheet" href="css/style.css" />
-	</head>
-	<body>
-		<main class="container">
-			<h1>AI FAQ Generator</h1>
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI FAQ Generator | High-Quality Q&A Creator</title>
+    <meta name="description" content="Generate high-quality FAQs instantly with AI. Supports product, service, and educational content.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- html2pdf for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-			<section class="input-area">
-				<label for="topic">Topic / Title</label>
-				<input id="topic" placeholder="e.g., Product X, Billing, Returns" />
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
 
-				<label for="content">Content / Description</label>
-				<textarea id="content" rows="8" placeholder="Paste article, product description, or enter details here..."></textarea>
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="ri-question-answer-line"></i>
+                <h1>AI FAQ Generator</h1>
+            </div>
+            <div class="header-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">
+                    <i class="ri-moon-line"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-				<div style="display:flex;gap:8px;align-items:center;margin-top:8px">
-					<label for="num">Number of FAQs</label>
-					<input id="num" type="number" min="1" max="20" value="5" style="width:80px" />
-					<button id="generateBtn">Generate FAQs</button>
-					<button id="copyAllBtn" class="copy-btn" style="background:#f3f4f6;color:#111">Copy All</button>
-					<button id="exportJsonBtn" class="copy-btn" style="background:#f3f4f6;color:#111">Export JSON</button>
-				</div>
-			</section>
+    <main class="app-container">
+        <section class="input-section glass-panel">
+            <div class="section-header">
+                <h2>Content Source</h2>
+                <p>Paste your content below and we'll generate comprehensive FAQs.</p>
+            </div>
 
-			<section class="output-area">
-				<h2>Generated FAQs</h2>
-				<div id="output">No output yet.</div>
-			</section>
-		</main>
+            <div class="controls-row">
+                <div class="input-group">
+                    <label for="category">Category</label>
+                    <select id="category" class="custom-select">
+                        <option value="General">General / Other</option>
+                        <option value="Educational">Educational</option>
+                        <option value="Product">Product Description</option>
+                        <option value="Service">Service Details</option>
+                        <option value="Technical">Technical / Documentation</option>
+                    </select>
+                </div>
+            </div>
 
-		<script src="js/script.js"></script>
-	</body>
+            <div class="input-group">
+                <label for="content">Source Text</label>
+                <textarea id="content" placeholder="Paste your article, product description, or any text here..." rows="8"></textarea>
+                <div class="error-msg" id="input-error">Please enter some content before generating.</div>
+            </div>
+
+            <button id="generate-btn" class="primary-btn">
+                <span>Generate FAQs</span>
+                <i class="ri-magic-line"></i>
+            </button>
+        </section>
+
+        <section class="output-section glass-panel" id="output-section" style="display: none;">
+            <div class="section-header output-header">
+                <div>
+                    <h2>Generated FAQs</h2>
+                    <p id="faq-count">0 Questions Generated</p>
+                </div>
+                <div class="action-buttons">
+                    <button id="export-pdf" class="secondary-btn">
+                        <i class="ri-file-pdf-line"></i>
+                        Export PDF
+                    </button>
+                </div>
+            </div>
+
+            <div id="loading-state" class="loading-state">
+                <div class="spinner"></div>
+                <p>Analyzing content and generating high-quality questions...</p>
+            </div>
+
+            <div id="error-state" class="error-state" style="display: none;">
+                <i class="ri-error-warning-line"></i>
+                <p id="api-error-msg">An error occurred while generating FAQs.</p>
+                <button id="retry-btn" class="secondary-btn">Try Again</button>
+            </div>
+
+            <div id="faq-container" class="faq-container">
+                <!-- FAQs will be injected here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
 </html>
