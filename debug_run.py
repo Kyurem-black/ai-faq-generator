@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 from backend.utils import generate_faqs
 import json
 c=('Anime refers to hand-drawn or computer-generated animation originating from Japan. '
